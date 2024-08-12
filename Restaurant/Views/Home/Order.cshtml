@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "Order";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Order</h2>
+
+@model IEnumerable<Restaurant.Models.order> 
+
+    @foreach (var order in Model)
+    {
+        <h2>Order ID: @order.OrderId</h2>
+        <p>Total Price: @order.TotalPrice</p>
+        <!-- Display other order properties as needed -->
+
+        <table id="datatable-1" class="table table-striped table-hover dataTable no-footer" role="grid" aria-describedby="datatable-1_info">
+            <tr>
+                <th>Menu ID</th>
+                <th>Food Name</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <!-- Add other columns for menu item details as needed -->
+            </tr>
+
+            @foreach (var detail in order.OrderDetails)
+            {
+                <tr>
+                    <td>@detail.MenuId</td>
+                    <td>@detail.Menu.FoodName</td>
+                    <td>@detail.Quantity</td>
+                    <td>@detail.TotalPrice</td>
+                    <!-- Display other menu item details as needed -->
+                </tr>
+            }
+        </table>
+
+    }
+

@@ -1,0 +1,191 @@
+﻿@using Restaurant.Models
+@model List<menu>
+@{
+    ViewBag.Title = "Home Page";
+}
+<h2>Menu</h2>
+
+
+
+<html><body>
+                <table id="datatable-1" class="table table-striped table-hover dataTable no-footer" role="grid" aria-describedby="datatable-1_info">
+                    <thead>
+                        <tr role="row">
+                            <th>Food Name</th>
+                            <th>Description</th>
+                            <th>Price</th>
+                            <th>Category</th>
+                            <th>Buy</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+
+                                    @item.FoodName
+
+
+                                </td>
+
+
+                                <td>
+
+                                    @item.FoodDescription
+
+                                </td>
+
+                                <td>
+                                    @item.FoodPrice
+                                </td>
+
+                                @*<td>
+                                    <button class="btn btn-danger foodAdd"> </button>
+                                </td>*@
+                                <td><a href="#" class="btn btn-danger foodAdd" data-foodid="@item.MenuId">Add To Basket</a></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+</body>
+</html>
+@section scripts{
+
+    <script src="~/Content/assets/js/required/jquery-1.11.1.min.js"></script>
+
+    <script>
+        $(".foodAdd").click( function ()
+        {
+            var s = confirm("Are you sure you want to add this food to basket?");
+            if (s) {
+                //var fid = $(this).attr("data-foodid")
+                //alert("ID=" + id);
+                $.ajax(
+
+
+                    {
+                        type: "POST",
+                        url: "/Cart/BasketAdd/" + $(this).attr("data-foodid"),
+                        success: function () {
+                          window.location.replace("/Home/Index/");
+                        },
+                        error: function () {
+                            alert("Something went wrong!");
+                        }
+                    });
+            }
+            else {
+                alert("Cancel");
+            }
+
+        });
+
+
+    </script>
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@* <table id="Fooditem">
+            <tr>
+                <th>Food Name</th>
+                <th>Price</th>
+                <th>Description</th>
+                <th></th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.FoodName</td>
+                    <td>@String.Format("{0:C}", item.FoodPrice)</td>
+                    <td>@item.FoodDescription</td>
+                    <td> <button data-menu-id="@item.MenuId" class= "btn-link  js-add">Add to Cart</button></td>
+                </tr>
+            }
+        </table>
+
+    @section scripts{
+        <script>
+         $(".js-add").click( function ()
+            {
+             if (confirm("Are you sure you want to add this food to basket?")) {
+                 $.ajax({
+                     type: "POST",
+                     url: "/Cart/BasketAdd/" + $(this).attr("data-menu-id"),
+                     success: function () {
+                         window.location.replace("/Home/Index/");
+
+                     },
+                     error: function () {
+                         alert("Something went wrong!");
+                     }
+                 })
+             }
+             else {
+                 alert("Cancel");
+             }
+        });
+        </script>
+    }
+        <style>
+            /* Style for the entire table */
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-bottom: 20px;
+            }
+
+            /* Style for table headers (th) */
+            th {
+                background-color: #f2f2f2;
+                text-align: left;
+                padding: 10px;
+                font-weight: bold;
+            }
+
+            /* Style for table rows (tr) */
+            tr {
+                border-bottom: 1px solid #ddd;
+            }
+
+                /* Style for alternating row colors */
+                tr:nth-child(even) {
+                    background-color: #f9f9f9;
+                }
+
+            /* Style for table cells (td) */
+            td {
+                padding: 10px;
+            }
+
+            /* Style for the "Add to Cart" button */
+            button {
+                background-color: #4CAF50;
+                color: white;
+                border: none;
+                padding: 5px 10px;
+                cursor: pointer;
+                font-weight: bold;
+            }
+
+                /* Hover effect for the button */
+                button:hover {
+                    background-color: #45a049;
+                }
+        </style>
+*@

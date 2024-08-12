@@ -1,0 +1,57 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\2321927\\OneDrive - Cognizant\\Desktop\\Restaurant 9\\Restaurant\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{BA7023DE-5EFB-487E-A5A2-282BC2C2AD12}|Restaurant\\Restaurant.csproj|c:\\users\\2321927\\onedrive - cognizant\\desktop\\restaurant 9\\restaurant\\restaurant\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{BA7023DE-5EFB-487E-A5A2-282BC2C2AD12}|Restaurant\\Restaurant.csproj|solutionrelative:restaurant\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BA7023DE-5EFB-487E-A5A2-282BC2C2AD12}|Restaurant\\Restaurant.csproj|C:\\Users\\2321927\\OneDrive - Cognizant\\Desktop\\Restaurant 9\\Restaurant\\restaurant\\models\\basket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BA7023DE-5EFB-487E-A5A2-282BC2C2AD12}|Restaurant\\Restaurant.csproj|solutionrelative:restaurant\\models\\basket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Web.config",
+              "DocumentMoniker": "C:\\Users\\2321927\\OneDrive - Cognizant\\Desktop\\Restaurant 9\\Restaurant\\Restaurant\\Web.config",
+              "RelativeDocumentMoniker": "Restaurant\\Web.config",
+              "ToolTip": "C:\\Users\\2321927\\OneDrive - Cognizant\\Desktop\\Restaurant 9\\Restaurant\\Restaurant\\Web.config",
+              "RelativeToolTip": "Restaurant\\Web.config",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2024-08-05T08:21:51.042Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Basket.cs",
+              "DocumentMoniker": "C:\\Users\\2321927\\OneDrive - Cognizant\\Desktop\\Restaurant 9\\Restaurant\\Restaurant\\Models\\Basket.cs",
+              "RelativeDocumentMoniker": "Restaurant\\Models\\Basket.cs",
+              "ToolTip": "C:\\Users\\2321927\\OneDrive - Cognizant\\Desktop\\Restaurant 9\\Restaurant\\Restaurant\\Models\\Basket.cs",
+              "RelativeToolTip": "Restaurant\\Models\\Basket.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-16T07:04:59.845Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

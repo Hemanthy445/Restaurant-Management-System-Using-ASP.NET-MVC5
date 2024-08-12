@@ -1,0 +1,70 @@
+﻿@model IEnumerable<Restaurant.Models.menu>
+
+@{
+    ViewBag.Title = "Menu Management";
+}
+<h2>Index</h2>
+<h2>Menu Management</h2>
+
+<table class="table">
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.FoodName)</th>
+        <th>@Html.DisplayNameFor(model => model.FoodPrice)</th>
+        <!-- Other columns -->
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.FoodName)</td>
+            <td>@Html.DisplayFor(modelItem => item.FoodPrice)</td>
+            <!-- Other columns -->
+            <td>
+                <a href="#" class="btn btn-danger foodAdd" data-foodid="@item.MenuId">Delete</a>
+            </td>
+        </tr>
+    }
+
+</table>
+
+<p>
+    @Html.ActionLink("Add New Menu Item", "Add", null, new { @class = "btn btn-success" })
+</p>
+
+
+@section scripts{
+
+    <script src="~/Content/assets/js/required/jquery-1.11.1.min.js"></script>
+
+    <script>
+        $(".foodAdd").click( function ()
+        {
+            var s = confirm("Are you sure you want to delete this food from Menu?");
+            if (s) {
+                //var fid = $(this).attr("data-foodid")
+                //alert("ID=" + id);
+                $.ajax(
+                  
+                    
+                    {
+                        type: "POST",
+                        url: " /Admin/DeleteConfirmed/" + $(this).attr("data-foodid"),
+                        success: function () {
+                            console.log("hi");
+                        },
+                        error: function () {
+                            alert("Something went wrong!");
+                        }
+                    });
+            }
+            else {
+                alert("Cancel");
+            }
+
+        });
+
+
+    </script>
+}
+

@@ -1,0 +1,102 @@
+﻿@{
+    int count = 0;
+}
+@model List<Restaurant.ViewModel.OrderViewModel>
+
+@{
+
+    ViewBag.Title = "Order Details";
+}
+
+<h2>Order Details</h2>
+
+
+@foreach (var order in Model)
+{
+    <div class="order-card">
+        <h3>Order ID: @order.OrderId</h3>
+        <p>Total Price: @order.TotalPrice</p>
+        @if (order.OrderDetails.Any())
+        {
+            var orderDate = order.OrderDetails.First().OrderDate;
+            foreach (var detail in order.OrderDetails)
+            {
+                if (detail.OrderDate == orderDate)
+                {
+                    count++;
+                }
+            }
+
+            if (count > 1)
+            {
+                <p><strong>Order Date:</strong> @orderDate.ToString("dd/MM/yyyy")</p>
+            }
+            count = 0; // Reset count for the next order
+        }
+        <table>
+            <tr>
+                <th>Food Name</th>
+                <th>Quantity</th>
+                <th>Price</th>
+            </tr>
+            @foreach (var detail in order.OrderDetails)
+            {
+                <tr>
+                    <td>@detail.FoodName</td>
+                    <td>@detail.Quantity</td>
+                    <td>@detail.TotalPrice</td>
+                </tr>
+            }
+        </table>
+    </div>
+}
+
+
+<style>
+    .order-card {
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        padding: 16px;
+        margin-bottom: 20px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        background-color: #f9f9f9;
+    }
+
+        .order-card h3 {
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .order-card p {
+            color: #555; /* Slightly lighter text for paragraphs */
+        }
+
+        .order-card table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .order-card th, .order-card td {
+            text-align: left;
+            padding: 8px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .order-card th {
+            background-color: #e7e7e7; /* Lighter shade for headers */
+            color: #333; /* Dark text for headers */
+        }
+
+    .order-date {
+        color: #d9534f; /* Reddish color for important dates */
+        font-weight: bold;
+    }
+
+    .order-card th {
+        background-color: #f8f8f8;
+    }
+</style>
+
